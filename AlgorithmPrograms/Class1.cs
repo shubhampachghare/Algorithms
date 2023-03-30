@@ -6,34 +6,32 @@ using System.Threading.Tasks;
 
 namespace AlgorithamPrograms
 {
-    internal class InsertionSort
-    {
-        public void doInsertionSort()
-        {
-            Console.WriteLine("enter size of array:");
-            int size = Convert.ToInt32(Console.ReadLine());
-            string[] array = new string[size];
-            Console.WriteLine("enter string elements of array:");
-            for (int i = 0; i < size; i++)
-            {
-                array[i] = Console.ReadLine();
-            }
-            for (int i = 1; i < array.Length; i++)
-            {
-                string key = array[i];
-                int j = i - 1;
-                while ((j >= 0) && (array[j].CompareTo(key) > 0))
-                {
-                    array[j + 1] = array[j];
-                    j = j - 1;
-                }
-                array[j + 1] = key;
-            }
 
-            for (int i = 0; i < array.Length; i++)
+    internal class PrimeNumber
+    {
+
+        public void Prime()
+        {
+            int i = 2;
+            Console.WriteLine("Range is 0 to 1000");
+            while (i < 1000)
             {
-                Console.Write(array[i] + " ");
+                bool count = false;
+                for (int j = 2; j < i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        count = true;
+                        break;
+                    }
+                }
+                if (count == false)
+                {
+                    Console.Write(i + " ");
+                }
+                i++;
             }
         }
     }
+
 }
