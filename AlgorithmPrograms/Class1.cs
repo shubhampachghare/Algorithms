@@ -6,29 +6,33 @@ using System.Threading.Tasks;
 
 namespace AlgorithamPrograms
 {
-    class BubbleSort
+    internal class InsertionSort
     {
-        public static void doBubbleSort(int[] array)
+        public void doInsertionSort()
         {
-            int temp;
-            Console.WriteLine("The original Array is:");
-            for (int i = 0; i < array.Length; i++)
+            Console.WriteLine("enter size of array:");
+            int size = Convert.ToInt32(Console.ReadLine());
+            string[] array = new string[size];
+            Console.WriteLine("enter string elements of array:");
+            for (int i = 0; i < size; i++)
             {
-                Console.WriteLine(array[i]);
+                array[i] = Console.ReadLine();
+            }
+            for (int i = 1; i < array.Length; i++)
+            {
+                string key = array[i];
+                int j = i - 1;
+                while ((j >= 0) && (array[j].CompareTo(key) > 0))
+                {
+                    array[j + 1] = array[j];
+                    j = j - 1;
+                }
+                array[j + 1] = key;
             }
 
-            for (int j = 0; j < array.Length; j++)
+            for (int i = 0; i < array.Length; i++)
             {
-                for (int i = 0; i < array.Length -1; i++)
-                {
-                    //elements in array are: 5, 2, 6, 
-                    if (array[i] > array[i + 1])
-                    {
-                        temp = array[i + 1]; //temp=2
-                        array[i + 1] = array[i]; //  5 2 6
-                        array[i] = temp; // 2 5 6
-                    }
-                }
+                Console.Write(array[i] + " ");
             }
         }
     }
